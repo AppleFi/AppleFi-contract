@@ -4,8 +4,8 @@ import "@openzeppelin/contracts/access/Ownable.sol";
 
 pragma solidity 0.6.12;
 
-// BakeryToken with Governance.
-contract BakeryToken is ERC20, Ownable {
+// ApplePieToken with Governance.
+contract ApplePieToken is ERC20, Ownable {
     uint256 private _cap=0;
     constructor( string memory name,string memory symbol) public ERC20(name, symbol) {
     }

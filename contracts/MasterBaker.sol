@@ -6,11 +6,11 @@ import "@openzeppelin/contracts/token/ERC20/SafeERC20.sol";
 import "@openzeppelin/contracts/utils/EnumerableSet.sol";
 import "@openzeppelin/contracts/math/SafeMath.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-import "./BakeryToken.sol";
+import "./ApplePieToken.sol";
 
 
 interface IMigratorChef {
-    // Perform LP token migration from legacy UniswapV2 to BakeryToken.
+    // Perform LP token migration from legacy UniswapV2 to ApplePieToken.
     // Take the current LP token address and return the new LP token address.
     // Migrator should have full access to the caller's LP token.
     // Return the new LP token address.
@@ -57,7 +57,7 @@ contract MasterBaker is Ownable {
     }
 
     // The Bakery TOKEN!
-    BakeryToken public bToken;
+    ApplePieToken public bToken;
 
     address public lottery;
     address public treasury;
@@ -84,7 +84,7 @@ contract MasterBaker is Ownable {
     event EmergencyWithdraw(address indexed user, uint256 indexed pid, uint256 amount);
 
     constructor(
-        BakeryToken _token,
+        ApplePieToken _token,
         address _lottery,
         address _treasury
     ) public {
@@ -97,8 +97,8 @@ contract MasterBaker is Ownable {
         return poolInfo.length;
     }
 
-    function setBakeryToken(address _token) public onlyOwner {
-        bToken = BakeryToken(_token);
+    function setApplePieToken(address _token) public onlyOwner {
+        bToken = ApplePieToken(_token);
     }
 
     function startBaking(uint256 waitBlock) public onlyOwner {
